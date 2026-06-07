@@ -3,22 +3,13 @@ import { ArrowRight, MessageCircle, ChevronDown } from 'lucide-react';
 
 const WA_LINK = 'https://wa.me/529611770435?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20asesor%C3%ADa.';
 
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDR8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG1lZXRpbmclMjBvZmZpY2V8ZW58MHx8fHwxNzgwODUwMjIwfDA&ixlib=rb-4.1.0&q=85';
-
 export default function Hero() {
   return (
     <section
       id="inicio"
       data-testid="hero-section"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${HERO_IMAGE})` }}
-      />
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-950/80 to-slate-900/85" />
       {/* Decorative grid */}
       <div
         className="absolute inset-0 opacity-10"
@@ -27,6 +18,8 @@ export default function Hero() {
           backgroundSize: '60px 60px',
         }}
       />
+      {/* Radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(56,189,248,0.12),transparent)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center py-32">
         {/* Badge */}

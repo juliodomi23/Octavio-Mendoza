@@ -90,6 +90,14 @@
 - Información de contacto completa
 - Copyright 2026
 
+## Actualización - 07 Jun 2026 (v1.1)
+- Logo real de Octavio Mendoza Consultor integrado (Navbar + Footer)
+- Hero: foto removida → gradiente azul profundo limpio
+- About: foto removida → placeholder para foto profesional futura
+- Contacto: simplificado a WhatsApp + Teléfono + dirección (sin mapa)
+- Admin Panel: al fondo del footer, contraseña `octavio2026`, permite cambiar logo URL
+- Contexto global de logo con localStorage (LogoContext.jsx)
+
 ## Backlog (P1/P2)
 
 ### P1 - Próximas mejoras

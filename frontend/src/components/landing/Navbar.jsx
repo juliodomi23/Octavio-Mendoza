@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, PhoneCall } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLogo } from '../../contexts/LogoContext';
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -16,6 +17,7 @@ const WA_LINK = 'https://wa.me/529611770435?text=Hola%2C%20me%20gustar%C3%ADa%20
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { logoUrl } = useLogo();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -35,17 +37,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#inicio" data-testid="navbar-logo" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-800 flex items-center justify-center shadow-lg shadow-blue-900/20 group-hover:shadow-blue-900/40 transition-shadow">
-              <span className="text-white font-bold text-sm tracking-wide">OM</span>
-            </div>
-            <div className="hidden sm:block leading-none">
-              <span className={`font-semibold text-sm block transition-colors ${scrolled ? 'text-slate-900' : 'text-white'}`}>
-                CP y PCPLDA
-              </span>
-              <span className={`text-xs block mt-0.5 transition-colors ${scrolled ? 'text-sky-600' : 'text-sky-300'}`}>
-                Octavio Mendoza
-              </span>
+          <a href="#inicio" data-testid="navbar-logo" className="flex items-center group">
+            <div
+              className={`rounded-xl overflow-hidden transition-all duration-300 ${
+                !scrolled ? 'bg-white/95 px-2 py-1 shadow-lg' : ''
+              }`}
+            >
+              <img
+                src={logoUrl}
+                alt="Octavio Mendoza Consultor"
+                className="h-9 md:h-10 w-auto object-contain"
+              />
             </div>
           </a>
 
@@ -84,7 +86,9 @@ export default function Navbar() {
             data-testid="mobile-menu-toggle"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Menú"
-            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'}`}
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+            }`}
           >
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>

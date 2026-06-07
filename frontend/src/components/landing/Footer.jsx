@@ -1,4 +1,6 @@
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { useLogo } from '../../contexts/LogoContext';
+import AdminPanel from './AdminPanel';
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -22,6 +24,8 @@ const services = [
 ];
 
 export default function Footer() {
+  const { logoUrl } = useLogo();
+
   return (
     <footer data-testid="footer" className="bg-slate-900 text-white">
       {/* Main Footer Content */}
@@ -29,13 +33,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-700 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">OM</span>
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-white">CP y PCPLDA</div>
-                <div className="text-xs text-sky-400">Octavio Mendoza</div>
+            <div className="mb-5">
+              <div className="bg-white rounded-xl p-2 inline-block">
+                <img
+                  src={logoUrl}
+                  alt="Octavio Mendoza Consultor"
+                  className="h-12 w-auto object-contain"
+                  data-testid="footer-logo"
+                />
               </div>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed mb-6">
@@ -159,6 +164,9 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      {/* Admin Panel */}
+      <AdminPanel />
     </footer>
   );
 }

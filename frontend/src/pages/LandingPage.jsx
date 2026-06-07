@@ -7,19 +7,22 @@ import Pricing from '../components/landing/Pricing';
 import BlogSection from '../components/landing/BlogSection';
 import Contact from '../components/landing/Contact';
 import Footer from '../components/landing/Footer';
+import { LogoProvider } from '../contexts/LogoContext';
 
 export default function LandingPage() {
   return (
-    <main data-testid="landing-page" className="bg-white font-sans">
-      <Navbar />
-      <Hero />
-      <About />
-      <Values />
-      <Services />
-      <Pricing />
-      <BlogSection />
-      <Contact />
-      <Footer />
-    </main>
+    <LogoProvider>
+      <main data-testid="landing-page" className="bg-white font-sans">
+        <Navbar />
+        <Hero />
+        <About />
+        <Values />
+        <Services />
+        <Pricing />
+        <BlogSection />
+        <Contact />
+        <Footer />
+      </main>
+    </LogoProvider>
   );
 }

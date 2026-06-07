@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Target, Users, Star, CheckCircle } from 'lucide-react';
 
-const ABOUT_IMAGE = 'https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbHMlMjB0ZWFtJTIwbWVldGluZyUyMGNvcnBvcmF0ZXxlbnwwfHx8fDE3ODA4NTAyNzR8MA&ixlib=rb-4.1.0&q=85';
-
 function useCountUp(target, duration = 1800, startCounting) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -77,7 +75,7 @@ export default function About() {
       className="py-24 md:py-32 bg-slate-50"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Label */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +90,8 @@ export default function About() {
           </h2>
         </motion.div>
 
-        {/* Main Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+        {/* Main Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
           {/* Text Side */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -118,7 +116,6 @@ export default function About() {
               con la más alta ética profesional.
             </p>
 
-            {/* Mission / Purpose */}
             <div className="space-y-4">
               <div
                 data-testid="about-mission"
@@ -157,22 +154,22 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Image Side */}
+          {/* Right Side - Decorative placeholder for future photo */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            data-testid="about-image-placeholder"
             className="relative"
-            data-testid="about-image"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/15">
-              <img
-                src={ABOUT_IMAGE}
-                alt="Equipo profesional"
-                className="w-full h-80 lg:h-96 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 to-transparent" />
+            {/* Photo placeholder */}
+            <div className="relative rounded-3xl overflow-hidden border-2 border-dashed border-slate-200 bg-slate-50 h-80 lg:h-96 flex flex-col items-center justify-center text-center p-8">
+              <div className="w-16 h-16 rounded-2xl bg-slate-200 flex items-center justify-center mb-4">
+                <Users size={28} className="text-slate-400" />
+              </div>
+              <p className="text-sm font-medium text-slate-400">Foto del equipo / oficina</p>
+              <p className="text-xs text-slate-300 mt-1">Pendiente de fotografía profesional</p>
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-5 -left-5 bg-white border border-slate-200 rounded-2xl p-4 shadow-lg">
