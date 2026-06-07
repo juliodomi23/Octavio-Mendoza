@@ -90,6 +90,14 @@
 - Información de contacto completa
 - Copyright 2026
 
+## Actualización - 07 Jun 2026 (v1.2)
+- **Características del sitio**: sección eliminada
+- **Blog funcional**: 4 artículos con seed (Fiscal 2026, PLD, Contabilidad, Gobierno Corporativo). Modal con artículo completo, imagen, categoría, autor, fecha. Filtro por categoría. CTA a WhatsApp al final.
+- **Bolsa de trabajo**: sección eliminada
+- **Navbar**: link "Carreras" eliminado. Cambio de idioma (ES/EN/FR) integrado.
+- **Logo**: mejorado con contenedor blanco consistente siempre visible en Navbar.
+- **Backend**: endpoints /api/blog/posts y /api/blog/posts/{slug}. Seed automático al arrancar si está vacío.
+
 ## Actualización - 07 Jun 2026 (v1.1)
 - Logo real de Octavio Mendoza Consultor integrado (Navbar + Footer)
 - Hero: foto removida → gradiente azul profundo limpio

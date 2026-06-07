@@ -4,25 +4,30 @@ import About from '../components/landing/About';
 import Values from '../components/landing/Values';
 import Services from '../components/landing/Services';
 import Pricing from '../components/landing/Pricing';
+import LeadForm from '../components/landing/LeadForm';
 import BlogSection from '../components/landing/BlogSection';
 import Contact from '../components/landing/Contact';
 import Footer from '../components/landing/Footer';
 import { LogoProvider } from '../contexts/LogoContext';
+import { LanguageProvider } from '../contexts/LanguageContext';
 
 export default function LandingPage() {
   return (
-    <LogoProvider>
-      <main data-testid="landing-page" className="bg-white font-sans">
-        <Navbar />
-        <Hero />
-        <About />
-        <Values />
-        <Services />
-        <Pricing />
-        <BlogSection />
-        <Contact />
-        <Footer />
-      </main>
-    </LogoProvider>
+    <LanguageProvider>
+      <LogoProvider>
+        <main data-testid="landing-page" className="bg-white font-sans">
+          <Navbar />
+          <Hero />
+          <About />
+          <Values />
+          <Services />
+          <Pricing />
+          <LeadForm />
+          <BlogSection />
+          <Contact />
+          <Footer />
+        </main>
+      </LogoProvider>
+    </LanguageProvider>
   );
 }
