@@ -47,6 +47,35 @@ class BlogPost(BaseModel):
     created_at: str
     image_url: Optional[str] = None
 
+class BlogPostCreate(BaseModel):
+    title: str
+    slug: str
+    excerpt: str
+    content: str
+    category: str
+    tags: List[str] = []
+    read_time: int = 5
+    author: str = "CP Octavio Mendoza"
+    image_url: Optional[str] = None
+    admin_password: str
+
+class BlogPostUpdate(BaseModel):
+    title: Optional[str] = None
+    slug: Optional[str] = None
+    excerpt: Optional[str] = None
+    content: Optional[str] = None
+    category: Optional[str] = None
+    tags: Optional[List[str]] = None
+    read_time: Optional[int] = None
+    author: Optional[str] = None
+    image_url: Optional[str] = None
+    admin_password: str
+
+class AdminAction(BaseModel):
+    admin_password: str
+
+ADMIN_PASSWORD = "octavio2026"
+
 
 # ── Seed data ────────────────────────────────────────────────────────────────
 
@@ -289,7 +318,7 @@ async def get_status_checks():
 
 @api_router.get("/blog/posts", response_model=List[BlogPost])
 async def get_blog_posts():
-    posts = await db.blog_posts.find({}, {"_id": 0}).to_list(100)
+    posts = await db.blog_posts.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
     return posts
 
 @api_router.get("/blog/posts/{slug}", response_model=BlogPost)
@@ -298,6 +327,52 @@ async def get_blog_post(slug: str):
     if not post:
         raise HTTPException(status_code=404, detail="Post no encontrado")
     return post
+
+@api_router.post("/blog/posts", response_model=BlogPost)
+async def create_blog_post(data: BlogPostCreate):
+    if data.admin_password != ADMIN_PASSWORD:
+        raise HTTPException(status_code=401, detail="Contraseña incorrecta")
+    existing = await db.blog_posts.find_one({"slug": data.slug})
+    if existing:
+        raise HTTPException(status_code=400, detail="Ya existe un post con ese slug")
+    now = datetime.now(timezone.utc).isoformat()
+    post = {
+        "id": str(uuid.uuid4()),
+        "slug": data.slug,
+        "title": data.title,
+        "excerpt": data.excerpt,
+        "content": data.content,
+        "category": data.category,
+        "tags": data.tags,
+        "read_time": data.read_time,
+        "author": data.author,
+        "image_url": data.image_url,
+        "created_at": now,
+    }
+    await db.blog_posts.insert_one({**post})
+    return BlogPost(**post)
+
+@api_router.put("/blog/posts/{slug}", response_model=BlogPost)
+async def update_blog_post(slug: str, data: BlogPostUpdate):
+    if data.admin_password != ADMIN_PASSWORD:
+        raise HTTPException(status_code=401, detail="Contraseña incorrecta")
+    post = await db.blog_posts.find_one({"slug": slug}, {"_id": 0})
+    if not post:
+        raise HTTPException(status_code=404, detail="Post no encontrado")
+    update = {k: v for k, v in data.model_dump(exclude={"admin_password"}).items() if v is not None}
+    if update:
+        await db.blog_posts.update_one({"slug": slug}, {"$set": update})
+    updated = await db.blog_posts.find_one({"slug": update.get("slug", slug)}, {"_id": 0})
+    return BlogPost(**updated)
+
+@api_router.delete("/blog/posts/{slug}")
+async def delete_blog_post(slug: str, data: AdminAction):
+    if data.admin_password != ADMIN_PASSWORD:
+        raise HTTPException(status_code=401, detail="Contraseña incorrecta")
+    result = await db.blog_posts.delete_one({"slug": slug})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Post no encontrado")
+    return {"ok": True}
 
 app.include_router(api_router)
 

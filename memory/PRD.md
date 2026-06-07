@@ -90,6 +90,12 @@
 - Información de contacto completa
 - Copyright 2026
 
+## Actualización - 07 Jun 2026 (v1.3)
+- **Admin Panel rediseñado** como CMS de blog: 2 pestañas (Blog / Logo del Sitio), sin características del sitio
+- **Blog CMS completo**: listar posts con fecha y categoría, crear nuevo artículo (formulario completo), editar, eliminar con confirmación
+- **Backend**: endpoints POST/PUT/DELETE para /api/blog/posts con password admin
+- **FeaturesSection y JobBoard**: eliminadas del sitio y del admin
+
 ## Actualización - 07 Jun 2026 (v1.2)
 - **Características del sitio**: sección eliminada
 - **Blog funcional**: 4 artículos con seed (Fiscal 2026, PLD, Contabilidad, Gobierno Corporativo). Modal con artículo completo, imagen, categoría, autor, fecha. Filtro por categoría. CTA a WhatsApp al final.
