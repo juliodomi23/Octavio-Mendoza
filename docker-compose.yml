@@ -17,8 +17,5 @@ services:
       MONGO_URL: mongodb://mongo:27017
       DB_NAME: octavio_mendoza
       CORS_ORIGINS: "*"
-    ports:
-      - "80:80"
-
 volumes:
   mongo_data:
