@@ -17,5 +17,13 @@ services:
       MONGO_URL: mongodb://mongo:27017
       DB_NAME: octavio_mendoza
       CORS_ORIGINS: "*"
+    networks:
+      - default
+      - easypanel
+
+networks:
+  easypanel:
+    external: true
+
 volumes:
   mongo_data:
