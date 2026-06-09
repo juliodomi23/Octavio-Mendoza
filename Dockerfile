@@ -3,8 +3,8 @@ FROM node:20-slim AS frontend-builder
 
 WORKDIR /app/frontend
 
-COPY frontend/package.json frontend/yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY frontend/package.json ./
+RUN yarn install
 
 COPY frontend/ .
 
