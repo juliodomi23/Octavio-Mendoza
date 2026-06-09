@@ -73,6 +73,37 @@ const t = {
       rights: 'Todos los derechos reservados.',
       location: 'Servicios Contables y Fiscales · Chiapa de Corzo, Chiapas',
     },
+    testimonials: {
+      label: 'Lo que dicen nuestros clientes',
+      title: 'Resultados que hablan por sí solos',
+      sub: 'Empresas y profesionistas que confían en nuestra asesoría para cumplir con sus obligaciones fiscales y normativas.',
+      items: [
+        {
+          quote: 'Gracias a la asesoría de Octavio, logramos implementar nuestro programa de PLD en tiempo récord y sin contratiempos con la SHCP. Su conocimiento del tema es excepcional.',
+          name: 'María González',
+          role: 'Directora General',
+          company: 'Inmobiliaria Chiapas S.A.',
+        },
+        {
+          quote: 'Llevamos 3 años trabajando juntos y la tranquilidad que nos da saber que nuestras obligaciones fiscales están en orden no tiene precio. Muy recomendable.',
+          name: 'Carlos Ruiz',
+          role: 'Gerente Financiero',
+          company: 'Distribuidora del Sureste',
+        },
+        {
+          quote: 'Nos ayudaron a estructurar un gobierno corporativo sólido para nuestra PyME. El proceso fue claro, profesional y completamente adaptado a nuestra realidad.',
+          name: 'Ana Morales',
+          role: 'Socia Fundadora',
+          company: 'Grupo Comercial Morales',
+        },
+        {
+          quote: 'La capacitación en PLD que recibió mi equipo fue práctica y muy bien explicada. Ahora entendemos nuestras obligaciones como sujetos obligados y actuamos con confianza.',
+          name: 'Roberto Espinoza',
+          role: 'Oficial de Cumplimiento',
+          company: 'Casa de Empeño Los Ángeles',
+        },
+      ],
+    },
     admin: {
       panel: 'Panel de Administración',
       passwordLabel: 'Contraseña de administrador',
@@ -162,6 +193,37 @@ const t = {
       rights: 'All rights reserved.',
       location: 'Accounting & Tax Services · Chiapa de Corzo, Chiapas',
     },
+    testimonials: {
+      label: 'What our clients say',
+      title: 'Results that speak for themselves',
+      sub: 'Companies and professionals who trust our advisory to meet their fiscal and regulatory obligations.',
+      items: [
+        {
+          quote: 'Thanks to Octavio\'s advisory, we implemented our AML program on time and without issues with the SHCP. His expertise on the subject is exceptional.',
+          name: 'María González',
+          role: 'CEO',
+          company: 'Inmobiliaria Chiapas S.A.',
+        },
+        {
+          quote: 'We\'ve been working together for 3 years and the peace of mind knowing our tax obligations are in order is priceless. Highly recommended.',
+          name: 'Carlos Ruiz',
+          role: 'Financial Manager',
+          company: 'Distribuidora del Sureste',
+        },
+        {
+          quote: 'They helped us structure solid corporate governance for our SME. The process was clear, professional, and completely adapted to our reality.',
+          name: 'Ana Morales',
+          role: 'Founding Partner',
+          company: 'Grupo Comercial Morales',
+        },
+        {
+          quote: 'The AML training my team received was practical and very well explained. We now understand our obligations as regulated entities and act with confidence.',
+          name: 'Roberto Espinoza',
+          role: 'Compliance Officer',
+          company: 'Casa de Empeño Los Ángeles',
+        },
+      ],
+    },
     admin: {
       panel: 'Administration Panel',
       passwordLabel: 'Admin password',
@@ -238,6 +300,37 @@ const t = {
       nav: 'Navigation', services: 'Services', contact: 'Contact',
       rights: 'Tous droits réservés.',
       location: 'Services Comptables et Fiscaux · Chiapa de Corzo, Chiapas',
+    },
+    testimonials: {
+      label: 'Ce que disent nos clients',
+      title: 'Des résultats qui parlent d\'eux-mêmes',
+      sub: 'Des entreprises et professionnels qui font confiance à nos conseils pour leurs obligations fiscales et réglementaires.',
+      items: [
+        {
+          quote: 'Grâce aux conseils d\'Octavio, nous avons mis en place notre programme LBA dans les délais sans problèmes. Son expertise est exceptionnelle.',
+          name: 'María González',
+          role: 'Directrice Générale',
+          company: 'Inmobiliaria Chiapas S.A.',
+        },
+        {
+          quote: 'Cela fait 3 ans que nous travaillons ensemble et la tranquillité de savoir que nos obligations fiscales sont en ordre n\'a pas de prix.',
+          name: 'Carlos Ruiz',
+          role: 'Responsable Financier',
+          company: 'Distribuidora del Sureste',
+        },
+        {
+          quote: 'Ils nous ont aidés à structurer une gouvernance d\'entreprise solide pour notre PME. Le processus était clair et professionnel.',
+          name: 'Ana Morales',
+          role: 'Associée Fondatrice',
+          company: 'Grupo Comercial Morales',
+        },
+        {
+          quote: 'La formation LBA reçue par mon équipe était pratique et très bien expliquée. Nous comprenons maintenant nos obligations et agissons en confiance.',
+          name: 'Roberto Espinoza',
+          role: 'Responsable Conformité',
+          company: 'Casa de Empeño Los Ángeles',
+        },
+      ],
     },
     admin: {
       panel: 'Panneau d\'Administration', passwordLabel: 'Mot de passe admin',

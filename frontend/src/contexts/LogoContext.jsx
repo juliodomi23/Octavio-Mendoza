@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
-const DEFAULT_LOGO = 'https://customer-assets.emergentagent.com/job_pld-consulting/artifacts/o9kpp3ep_Redise%C3%B1o%20moderno%20del%20-%20Octavio%20Mendoza.png';
+const DEFAULT_LOGO = '/logo.png';
 
 const LogoContext = createContext();
 

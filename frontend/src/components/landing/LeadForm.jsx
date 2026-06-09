@@ -78,8 +78,10 @@ export default function LeadForm() {
         >
           {/* Name */}
           <div className="relative">
-            <User size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" />
+            <label htmlFor="lead-name" className="sr-only">{tf.namePlaceholder}</label>
+            <User size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" aria-hidden="true" />
             <input
+              id="lead-name"
               type="text"
               name="name"
               value={form.name}
@@ -93,8 +95,10 @@ export default function LeadForm() {
 
           {/* Company */}
           <div className="relative">
-            <Building2 size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" />
+            <label htmlFor="lead-company" className="sr-only">{tf.companyPlaceholder}</label>
+            <Building2 size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" aria-hidden="true" />
             <input
+              id="lead-company"
               type="text"
               name="company"
               value={form.company}
@@ -107,8 +111,10 @@ export default function LeadForm() {
 
           {/* Service */}
           <div className="relative">
-            <FileText size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" />
+            <label htmlFor="lead-service" className="sr-only">{tf.servicePlaceholder}</label>
+            <FileText size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" aria-hidden="true" />
             <select
+              id="lead-service"
               name="service"
               value={form.service}
               onChange={handleChange}
@@ -123,8 +129,10 @@ export default function LeadForm() {
 
           {/* Message */}
           <div className="relative">
-            <MessageSquare size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" />
+            <label htmlFor="lead-message" className="sr-only">{tf.messagePlaceholder}</label>
+            <MessageSquare size={16} className="absolute left-3.5 top-3.5 text-slate-400 pointer-events-none" aria-hidden="true" />
             <textarea
+              id="lead-message"
               name="message"
               value={form.message}
               onChange={handleChange}

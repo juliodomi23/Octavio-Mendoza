@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, MessageCircle, ChevronDown } from 'lucide-react';
 import { useLang } from '../../contexts/LanguageContext';
 import { useT } from '../../data/translations';
@@ -8,6 +8,7 @@ const WA_LINK = 'https://wa.me/529611770435?text=Hola%2C%20me%20gustar%C3%ADa%20
 export default function Hero() {
   const { lang } = useLang();
   const th = useT(lang).hero;
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
@@ -104,8 +105,9 @@ export default function Hero() {
 
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
+        animate={prefersReducedMotion ? {} : { y: [0, 8, 0] }}
+        transition={prefersReducedMotion ? {} : { repeat: Infinity, duration: 2 }}
+        aria-hidden="true"
       >
         <ChevronDown size={28} />
       </motion.div>

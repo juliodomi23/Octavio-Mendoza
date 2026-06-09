@@ -1,0 +1,32 @@
+services:
+
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: octavio_mendoza
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      DB_NAME: octavio_mendoza
+      CORS_ORIGINS: http://localhost:3000
+    ports:
+      - "8001:8000"
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  mongo_data:

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Target, Users, Star, CheckCircle } from 'lucide-react';
+import { Target, Users, Star, CheckCircle, BadgeCheck, GraduationCap, MapPin } from 'lucide-react';
 
 function useCountUp(target, duration = 1800, startCounting) {
   const [count, setCount] = useState(0);
@@ -154,31 +154,67 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Side - Decorative placeholder for future photo */}
+          {/* Right Side - Credentials card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            data-testid="about-image-placeholder"
+            data-testid="about-credentials"
             className="relative"
           >
-            {/* Photo placeholder */}
-            <div className="relative rounded-3xl overflow-hidden border-2 border-dashed border-slate-200 bg-slate-50 h-80 lg:h-96 flex flex-col items-center justify-center text-center p-8">
-              <div className="w-16 h-16 rounded-2xl bg-slate-200 flex items-center justify-center mb-4">
-                <Users size={28} className="text-slate-400" />
+            <div className="bg-gradient-to-br from-slate-900 to-blue-950 rounded-3xl p-8 text-white h-full min-h-80">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-sky-600 flex items-center justify-center">
+                  <BadgeCheck size={24} className="text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-white text-base leading-tight">CP y PCPLDA</p>
+                  <p className="text-sky-300 text-sm">Octavio Mendoza</p>
+                </div>
               </div>
-              <p className="text-sm font-medium text-slate-400">Foto del equipo / oficina</p>
-              <p className="text-xs text-slate-300 mt-1">Pendiente de fotografía profesional</p>
-            </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-5 -left-5 bg-white border border-slate-200 rounded-2xl p-4 shadow-lg">
-              <div className="text-2xl font-bold text-blue-900 font-outfit">22+</div>
-              <div className="text-xs text-slate-500">Años de experiencia</div>
-            </div>
-            <div className="absolute -top-5 -right-5 bg-sky-600 rounded-2xl p-4 shadow-lg">
-              <div className="text-2xl font-bold text-white font-outfit">PLD</div>
-              <div className="text-xs text-sky-200">Especialistas</div>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <GraduationCap size={18} className="text-sky-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-white">Contador Público Certificado</p>
+                    <p className="text-xs text-slate-400">Colegio de Contadores Públicos</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <BadgeCheck size={18} className="text-sky-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-white">PCPLDA Certificado</p>
+                    <p className="text-xs text-slate-400">Prevención de Lavado de Dinero — SHCP</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Star size={18} className="text-sky-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-white">22+ años de experiencia</p>
+                    <p className="text-xs text-slate-400">Asesoría fiscal, contable y compliance</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin size={18} className="text-sky-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-white">Chiapa de Corzo, Chiapas</p>
+                    <p className="text-xs text-slate-400">Atención presencial y virtual</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-sky-400 font-outfit">22+</div>
+                  <div className="text-xs text-slate-400 mt-0.5">Años de experiencia</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-sky-400 font-outfit">PLD</div>
+                  <div className="text-xs text-slate-400 mt-0.5">Especialista certificado</div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

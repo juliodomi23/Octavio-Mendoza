@@ -3,6 +3,7 @@ import Hero from '../components/landing/Hero';
 import About from '../components/landing/About';
 import Values from '../components/landing/Values';
 import Services from '../components/landing/Services';
+import Testimonials from '../components/landing/Testimonials';
 import Pricing from '../components/landing/Pricing';
 import LeadForm from '../components/landing/LeadForm';
 import BlogSection from '../components/landing/BlogSection';
@@ -21,6 +22,7 @@ export default function LandingPage() {
           <About />
           <Values />
           <Services />
+          <Testimonials />
           <Pricing />
           <LeadForm />
           <BlogSection />
